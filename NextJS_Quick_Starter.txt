@@ -1,0 +1,89 @@
+
+🚀 أوامر Next.js (Setup سريع)
+
+1️⃣ إنشاء مشروع Next.js جديد
+--------------------------------
+npx create-next-app@latest my-app
+
+2️⃣ تسطيب Tailwind CSS + DaisyUI
+--------------------------------
+cd my-app
+npm install -D tailwindcss postcss autoprefixer daisyui
+npx tailwindcss init -p
+
+3️⃣ تعديل tailwind.config.js
+--------------------------------
+module.exports = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [require("daisyui")],
+}
+
+4️⃣ تعديل globals.css
+--------------------------------
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+5️⃣ Run المشروع
+--------------------------------
+npm run dev
+
+
+⚡ أوامر الباك إند في Next.js (API Routes)
+
+📌 إنشاء API Route (App Router)
+--------------------------------
+src/app/api/hello/route.ts
+
+import { NextResponse } from 'next/server'
+
+export async function GET() {
+  return NextResponse.json({ message: "Hello API 🚀" })
+}
+
+📌 Methods تانية
+--------------------------------
+export async function POST(req: Request) {
+  const body = await req.json()
+  return NextResponse.json({ data: body })
+}
+
+export async function PUT(req: Request) {
+  return NextResponse.json({ message: "Updated ✅" })
+}
+
+export async function DELETE(req: Request) {
+  return NextResponse.json({ message: "Deleted ❌" })
+}
+
+
+🛠 أوامر إضافية سريعة
+--------------------------------
+- بناء المشروع (Production):
+npm run build
+
+- تشغيل السيرفر بعد البناء:
+npm start
+
+- Lint check:
+npm run lint
+
+- إضافة مكتبة جديدة (مثال axios):
+npm install axios
+ظظ
